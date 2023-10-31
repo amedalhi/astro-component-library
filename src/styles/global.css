@@ -4,4 +4,8 @@
   --secondary: red;
   --light: white;
   --dark: black;
+
+  --radius-sharp: 4px;
+  --radius-natural: 8px;
+  --radius-round: 12px;
 }

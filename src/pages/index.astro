@@ -12,6 +12,19 @@ import Button from "../components/Button.astro"
 	</head>
 	<body>
 		<h1>Astro Component Library</h1>
-		<Button isFilled>Button</Button>
+		<Button>Button</Button>
+		<p>Available props for Button</p>
+		<ul>
+			<li>Size: "sm" | "md" (default) | "lg"</li>
+			<li>Type: "button" (default)| "submit"</li>
+		</ul>
+		<Button size="sm">Button</Button>
+		<Button size="md">Button</Button>
+		<Button size="lg">Button</Button>
+		<Button notFilled>Button</Button>
+		<Button radius="sharp">Button</Button>
+		<Button radius="natural">Button</Button>
+		<Button radius="round">Button</Button>
+		<Button radius="natural" notFilled>Button</Button>
 	</body>
 </html>

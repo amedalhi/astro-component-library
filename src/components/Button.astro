@@ -6,7 +6,7 @@ import "../styles/global.css" //this can be at the MainLayout level.
 interface Props extends HTMLAttributes<"button"> {
   type?: "button" | "submit";
   size?: "sm" | "md" | "lg";
-  isFilled?: boolean;
+  notFilled?: boolean;
   theme?:
     | "primary"
     | "secondary"
@@ -17,14 +17,16 @@ interface Props extends HTMLAttributes<"button"> {
     | "light"
     | "dark";
   classes?: string;
+  radius?: "square" | "sharp" | "natural" | "round"
 }
 
 const {
   classes, 
   type = "button",
   size= "md",
-  isFilled, 
-  theme = 'primary',
+  notFilled, 
+  theme = "primary",
+  radius = "square",
   ...rest
 } = Astro.props;
 
@@ -33,7 +35,7 @@ const background = `var(--${theme})`;
 const foreground = theme === "light" ? "var(--primary)" : "var(--light)";
 ---
 
-<button class:list={[classes, "test-class-delete", {filled: isFilled}]} {type} data-size={size} {...rest}>
+<button class:list={[classes, "test-class-delete", {filled: !notFilled}]} {type} data-size={size} data-radius={radius} {...rest}>
   <slot/>
 </button>
 
@@ -87,5 +89,18 @@ const foreground = theme === "light" ? "var(--primary)" : "var(--light)";
   }
   [data-size="lg"] {
     font-size: 1.5rem;
+  }
+
+  [data-radius="square"] {
+    border-radius: 0;
+  }
+  [data-radius="sharp"] {
+    border-radius: var(--radius-sharp);
+  }
+  [data-radius="natural"] {
+    border-radius: var(--radius-natural);
+  }
+  [data-radius="round"] {
+    border-radius: var(--radius-round);
   }
 </style>
