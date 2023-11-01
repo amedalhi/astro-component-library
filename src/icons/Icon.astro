@@ -1,0 +1,13 @@
+---
+//svg icon imports
+import MagGlass from "./MagGlass.astro";
+
+const iconMap = {
+  magGlass: MagGlass,
+}
+
+const IconComponent = iconMap[Astro.props.name]
+
+---
+
+<IconComponent />
