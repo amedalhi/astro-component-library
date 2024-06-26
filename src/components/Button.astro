@@ -35,7 +35,7 @@ const background = `var(--${theme})`;
 const foreground = theme === "light" ? "var(--primary)" : "var(--light)";
 ---
 
-<button class:list={[classes, "test-class-delete", {filled: !notFilled}]} {type} data-size={size} data-radius={radius} {...rest}>
+<button class:list={[classes, {filled: !notFilled}]} {type} data-size={size} data-radius={radius} {...rest}>
   <slot/>
 </button>
 
